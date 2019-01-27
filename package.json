@@ -1,0 +1,8 @@
+{
+  "name": "admin-fe",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Xugai/admin-fe.git",
+  "author": "Xugai <xuqiubing@yeah.net>",
+  "license": "MIT"
+}
