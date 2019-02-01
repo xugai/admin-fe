@@ -2,7 +2,7 @@
 * @Author: Xugai
 * @Date:   2019-01-27 21:04:38
 * @Last Modified by:   Xugai
-* @Last Modified time: 2019-01-28 23:21:02
+* @Last Modified time: 2019-02-01 13:29:39
 */
 // 推测require()是Node.js的库函数(类似JRE,它也会提供库函数供我们使用)
 const path = require('path');
@@ -17,6 +17,12 @@ module.exports = {
       publicPath: '/dist/',
     	filename: 'js/app.js'
   	},
+    resolve: {
+      alias: {
+        page: path.resolve(__dirname, 'src/page'),
+        component: path.resolve(__dirname, 'src/component')
+      }
+    },
   	module: {
   		rules: [
         // react语法(jsx)的解析
@@ -77,7 +83,8 @@ module.exports = {
   plugins: [
       // 处理html文件
       new HtmlWebpackPlugin({
-        template: './src/index.html'
+        template: './src/index.html',
+        favicon: './favicon.ico'
       }),
       // 独立css文件
       new ExtractTextPlugin("css/[name].css"),
@@ -89,6 +96,9 @@ module.exports = {
   ],
   devServer: {
     // contentBase: './dist'
-    port: 8081
+    port: 8081,
+    historyApiFallback: {
+      index: '/dist/index.html'
+    }
   }
 };
