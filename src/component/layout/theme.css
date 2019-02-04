@@ -2,7 +2,7 @@
 * @Author: Xugai
 * @Date:   2019-01-31 13:47:41
 * @Last Modified by:   Xugai
-* @Last Modified time: 2019-01-31 22:16:15
+* @Last Modified time: 2019-02-02 15:25:49
 */
 /*----------------------------------------------
 Author : www.webthemez.com
@@ -48,7 +48,7 @@ h4 {
 p {
     font-size:16px;
     line-height:25px;
-    padding-top:20px;
+    /*padding-top:20px;*/
 }
 .panel {
     border-radius:0px;

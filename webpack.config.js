@@ -2,7 +2,7 @@
 * @Author: Xugai
 * @Date:   2019-01-27 21:04:38
 * @Last Modified by:   Xugai
-* @Last Modified time: 2019-02-01 13:29:39
+* @Last Modified time: 2019-02-02 14:07:43
 */
 // 推测require()是Node.js的库函数(类似JRE,它也会提供库函数供我们使用)
 const path = require('path');
@@ -20,7 +20,9 @@ module.exports = {
     resolve: {
       alias: {
         page: path.resolve(__dirname, 'src/page'),
-        component: path.resolve(__dirname, 'src/component')
+        component: path.resolve(__dirname, 'src/component'),
+        util: path.resolve(__dirname, 'src/util'),
+        service: path.resolve(__dirname, 'src/service')
       }
     },
   	module: {
@@ -99,6 +101,16 @@ module.exports = {
     port: 8081,
     historyApiFallback: {
       index: '/dist/index.html'
+    },
+    proxy: {
+      '/manage': {
+        target: 'http://admintest.happymmall.com',
+        changeOrigin: true
+      },
+      '/user/logout.do': {
+        target: 'http://admintest.happymmall.com',
+        changeOrigin: true
+      }
     }
   }
 };

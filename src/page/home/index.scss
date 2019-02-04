@@ -1,0 +1,42 @@
+/*
+* @Author: Xugai
+* @Date:   2019-01-31 13:47:34
+* @Last Modified by:   Xugai
+* @Last Modified time: 2019-02-02 15:59:02
+*/
+.color-box{
+	display: block;
+	height: 160px;
+	text-align: center;
+	padding: 20px 0;
+	opacity: .9;	// 设置元素的透明度
+	transition: all .3s;	// 把鼠标放到该元素上,会产生元素渐渐变大的动画效果,数字越大,元素的动作越慢
+	&:hover{
+		text-decoration: none;
+		color: #333;
+		opacity: 1;
+		transform: scale(1.08);
+	}
+	&:focus{
+		text-decoration: none;
+	}
+	.count{
+		font-size: 50px;
+		height: 80px;
+		line-height: 80px;
+	}
+	.desc{
+		font-size: 18px;
+		.fa{
+			margin-right: 5px;
+		}
+	}
+}
+.footer{
+	p{
+		font-size: 14px;
+	}
+	position: fixed;
+	bottom: 0px;
+	right: 8px;
+}
