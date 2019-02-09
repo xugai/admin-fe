@@ -4,6 +4,7 @@ import PageTitle from 'component/page-title/index.jsx';
 import PaginationPlugin from 'util/pagination/index.jsx';
 import User from 'service/user-service.jsx';
 import MUtil from 'util/mm.jsx';
+import TableList from 'util/table-list.jsx';
 
 const userService = new User();
 const mmall_util = new MUtil(); 
@@ -13,18 +14,13 @@ class UserList extends React.Component{
 		super(props);
 		this.state = {
 			pageNum: 1,
-			list: [],
-			firstLoading: true
+			list: []
 		};
 		this.loadUserList();
 	}
 	loadUserList(){
 		userService.getUserList(this.state.pageNum).then((res) => {
-			this.setState(res.data, () => {
-				this.setState({
-					firstLoading: false
-				});
-			});
+			this.setState(res.data);
 		}, (err) => {
 			this.setState({
 				list: []
@@ -40,46 +36,31 @@ class UserList extends React.Component{
 		});
 	}
 	render(){
-		let pageBody = this.state.list.map((user, index) => {
-									return (
-										<tr key={index}>
-											<td>{user.id}</td>
-											<td>{user.username}</td>
-											<td>{user.email}</td>
-											<td>{user.phone}</td>
-											<td>{new Date(user.createTime).toLocaleString()}</td>
-										</tr>
-									)
-								}
-							);
-		let errorBody = (
-			<tr align="center">
-				<td colSpan="5">{this.state.firstLoading ? '正在加载中,请稍后...' : '没有查找到相应的结果,请尝试其他操作!~'}</td>
-			</tr>
-		);
+		let headers = [
+			{name: 'id', width: '10%'},
+			{name: '用户名', width: '45%'},
+			{name: '邮箱', width: '10%'},
+			{name: '联系方式', width: '15%'},
+			{name: '注册时间', width: '20%'}
+		];
 		return (
 			<div id="page-wrapper">
 				<PageTitle title="用户列表"/>
-				<div className="row">
-					<div className="col-md-12">
-						<table className="table table-hover">
-							<thead>
-								<tr>
-									<th>id</th>
-									<th>username</th>
-									<th>email</th>
-									<th>phone</th>
-									<th>createTime</th>
-								</tr>
-							</thead>
-							<tbody>
-							{ 
-								this.state.list.length === 0 ? errorBody : pageBody
-							}
-							</tbody>
-						</table>
-					</div>
-				</div>
+				<TableList headers={headers}>
+					{
+						this.state.list.map((user, index) => {
+								return (
+									<tr key={index}>
+										<td>{user.id}</td>
+										<td>{user.username}</td>
+										<td>{user.email}</td>
+										<td>{user.phone}</td>
+										<td>{new Date(user.createTime).toLocaleString()}</td>
+									</tr>
+								)
+							})
+					}
+				</TableList>
 				<PaginationPlugin defaultCurrent={this.state.pageNum} defaultPageSize={this.state.pageSize} total={this.state.total} 
 									onChange={pageNum => {this.onPageNumChange(pageNum)}}/>
 			</div>

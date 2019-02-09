@@ -8,7 +8,7 @@ class MUtil{
 				dataType: param.dataType 	|| 'json',
 				data 	: param.data 		|| null,
 				success: res => {
-					// 若返回的状态码为0,代表登录成功
+					// 若返回的状态码为0,代表请求成功
 					if(0 === res.status){
 						typeof resolve === 'function' && resolve({
 							data: res.data,
@@ -43,6 +43,9 @@ class MUtil{
 		// 实际上正则会返回一个数组,里面包含了符合正则表达式以及子表达式的字符串元素,
 		// result['param1=123&', '', '123', '&']
 		return result ? decodeURIComponent(result[2]) : null;
+	}
+	successTips(successMsg){
+		alert(successMsg || '操作成功!');
 	}
 	errorTips(errMsg){
 		alert(errMsg || '好像哪里不对,刷新重试下!');
