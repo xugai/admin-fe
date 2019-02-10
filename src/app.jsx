@@ -13,7 +13,10 @@ import Home from 'page/home/index.jsx';
 import Login from 'page/login/index.jsx';
 import ErrorPage from 'page/error/index.jsx';
 import UserList from 'page/userList/index.jsx';
+import OrderList from 'page/order/index.jsx';
+import OrderDetail from 'page/order/detail.jsx';
 import ProductRouter from 'page/product/router.jsx';
+
 class App extends React.Component{
 	render(){
 		let layoutRouter = (
@@ -22,7 +25,8 @@ class App extends React.Component{
 					<Route exact path='/' component={Home} />
 					<Route path='/product' component={ProductRouter}/>
 					<Route path='/product-category' component={ProductRouter}/>
-					<Route path='/order' component={Home} />
+					<Route exact path='/order' component={OrderList} />
+					<Route path='/order/detail/:orderNo' component={OrderDetail} />
 					<Redirect exact from='/user' to='/user/index' />
 					<Route path='/user/index' component={UserList} />
 					<Route component={ErrorPage} />

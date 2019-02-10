@@ -15,7 +15,9 @@ class TableList extends React.Component{
 	render(){
 		let tableHeaders = this.props.headers.map((header, index) => {
 			return (
+					typeof header === 'object' ?
 					<th key={index} width={header.width}>{header.name}</th>
+					: <th key={index}>{header}</th>
 				)
 		});
 		let tableBody = this.props.children;
