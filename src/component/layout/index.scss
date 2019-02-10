@@ -2,10 +2,13 @@
 * @Author: Xugai
 * @Date:   2019-02-07 00:01:10
 * @Last Modified by:   Xugai
-* @Last Modified time: 2019-02-07 00:08:49
+* @Last Modified time: 2019-02-10 15:49:17
 */
 .page-title-right{
 	position: absolute;
 	right: 5px;
 	top: 15px;
+	.fa-arrow-left{
+		margin-right: 2px;
+	}
 }

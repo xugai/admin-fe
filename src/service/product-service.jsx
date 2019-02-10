@@ -91,6 +91,23 @@ class Product{
 			}
 		}); 
 	}
+	updateName(categoryId, categoryName){
+		return mmall_util.request({
+			url: '/manage/category/set_category_name.do',
+			type: 'post',
+			data: {
+				categoryId: categoryId,
+				categoryName: categoryName
+			}
+		}); 
+	}
+	addCategory(data){
+		return mmall_util.request({
+			url: '/manage/category/add_category.do',
+			type: 'post',
+			data: data
+		}); 
+	}
 }
 
 export default Product;

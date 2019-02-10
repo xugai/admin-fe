@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Redirect, Link, Switch } from 'react-router-dom';
 import PageTitle from 'component/page-title/index.jsx';
+import Director from 'component/director/index.jsx';
 import CategorySelector from 'page/product/index/category-selector.jsx';
 
 import Product from 'service/product-service.jsx';
@@ -47,7 +48,9 @@ class ProductDetail extends React.Component{
 	render(){
 		return (
 			<div id="page-wrapper">
-				<PageTitle title="商品详情" />
+				<PageTitle title="商品详情" >
+					<Director targetLink="/product/productlist"/>
+				</PageTitle>
 				<div className="form-horizontal">
 				  <div className="form-group">
 				    <label className="col-md-2 control-label">商品名称</label>

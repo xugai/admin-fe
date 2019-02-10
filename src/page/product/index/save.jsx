@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Redirect, Link, Switch } from 'react-router-dom';
 import PageTitle from 'component/page-title/index.jsx';
+import Director from 'component/director/index.jsx';
 import CategorySelector from 'page/product/index/category-selector.jsx';
 import FileUploader from 'util/file-upload/index.jsx';
 import RichtextEditor from 'util/richtext-editor/index.jsx';
@@ -122,7 +123,15 @@ class ProductSave extends React.Component{
 		return (
 			<div id="page-wrapper">
 				{
-					this.state.id ? <PageTitle title="商品编辑"/> : <PageTitle title="商品添加"/>
+					this.state.id ? (
+						<PageTitle title="商品编辑" >
+							<Director targetLink="/product/productlist"/>
+						</PageTitle>
+					) : (
+						<PageTitle title="商品添加" >
+							<Director targetLink="/product/productlist"/>
+						</PageTitle>
+					)
 				}
 				<div className="form-horizontal">
 				  <div className="form-group">
