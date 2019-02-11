@@ -2,19 +2,20 @@
 * @Author: Xugai
 * @Date:   2019-01-27 21:04:38
 * @Last Modified by:   Xugai
-* @Last Modified time: 2019-02-02 14:07:43
+* @Last Modified time: 2019-02-11 11:11:25
 */
 // 推测require()是Node.js的库函数(类似JRE,它也会提供库函数供我们使用)
 const path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const webpack = require('webpack');
-
+var WEBPACK_ENV = process.env.WEBPACK_ENV || 'dev';
+console.log(WEBPACK_ENV);
 module.exports = {
     entry: './src/app.jsx',
   	output: {
     	path: path.resolve(__dirname, 'dist'),
-      publicPath: '/dist/',
+      publicPath: WEBPACK_ENV === 'dev' ? '/dist/' : '//s.immall.tk/admin-fe/dist/',
     	filename: 'js/app.js'
   	},
     resolve: {
