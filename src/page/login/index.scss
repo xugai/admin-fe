@@ -1,0 +1,18 @@
+/*
+* @Author: Xugai
+* @Date:   2019-02-01 16:21:38
+* @Last Modified by:   Xugai
+* @Last Modified time: 2019-02-01 16:35:26
+*/
+.panel{
+	border-radius: 3px;
+}
+.login-panel{
+	margin-top: 25%;
+	.panel-heading{
+		padding-bottom: 10px;
+	}
+	.panel-heading span{
+		font-size: 16px;
+	} 
+}
