@@ -13,7 +13,7 @@ class Product{
 			data[listParam.searchType] = listParam.searchKeyword;
 		}
 		return mmall_util.request({
-			type: 'post',
+			type: 'get',
 			url: url,
 			data: data
 		});
@@ -21,7 +21,7 @@ class Product{
 	setSaleStatus(productInfo){
 		return mmall_util.request({
 			url: '/manage/product/set_sale_status.do',
-			type: 'post',
+			type: 'get',
 			data: productInfo
 		}); 
 	}
@@ -66,14 +66,14 @@ class Product{
 	saveProduct(product){
 		return mmall_util.request({
 			url: '/manage/product/save.do',
-			type: 'post',
+			type: 'get',
 			data: product
 		}); 
 	}
 	getProduct(productId){
 		return mmall_util.request({
 			url: '/manage/product/detail.do',
-			type: 'post',
+			type: 'get',
 			data: {
 				productId: productId
 			}
@@ -85,7 +85,7 @@ class Product{
 	getCategoryIdList(categoryId){
 		return mmall_util.request({
 			url: '/manage/category/get_category.do',
-			type: 'post',
+			type: 'get',
 			data: {
 				categoryId: categoryId || 0
 			}
@@ -94,7 +94,7 @@ class Product{
 	updateName(categoryId, categoryName){
 		return mmall_util.request({
 			url: '/manage/category/set_category_name.do',
-			type: 'post',
+			type: 'get',
 			data: {
 				categoryId: categoryId,
 				categoryName: categoryName
@@ -104,7 +104,7 @@ class Product{
 	addCategory(data){
 		return mmall_util.request({
 			url: '/manage/category/add_category.do',
-			type: 'post',
+			type: 'get',
 			data: data
 		}); 
 	}
