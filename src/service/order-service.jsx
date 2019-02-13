@@ -13,14 +13,14 @@ class Order{
 			data[listParam.searchType] = listParam.searchKeyword;
 		}
 		return mmall_util.request({
-			type: 'post',
+			type: 'get',
 			url: url,
 			data: data
 		});
 	}
 	getOrderDetail(orderNo){
 		return mmall_util.request({
-			type: 'post',
+			type: 'get',
 			url: '/manage/order/detail.do',
 			data: {
 				orderNo: orderNo
@@ -29,7 +29,7 @@ class Order{
 	}
 	sendGoods(orderNo){
 		return mmall_util.request({
-			type: 'post',
+			type: 'get',
 			url: '/manage/order/send_goods.do',
 			data: {
 				orderNo: orderNo
