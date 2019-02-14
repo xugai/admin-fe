@@ -38,7 +38,7 @@ class ProductSave extends React.Component{
 				res.data.subImages = imgs.map(imgUri => {
 					return {
 						uri: imgUri,
-						url: res.data.imageHost + imgUri
+						url: res.data.imageHost
 					}
 				});
 				this.setState(res.data);
