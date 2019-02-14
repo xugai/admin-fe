@@ -183,7 +183,7 @@ class ProductSave extends React.Component{
 							this.state.subImages.map((img, index) => {
 								return (
 									<div className="img-con" key={index}>
-										<img className="img" src={img.url} alt="上传此图片"/>
+										<img className="img" src={img.url+img.uri} alt="上传此图片"/>
 										<i className="fa fa-close" index={index} onClick={e => this.onDeleteImg(e)}></i>
 									</div>
 								)
