@@ -7,7 +7,7 @@ class FileUploader extends React.Component{
 		let options={
 			baseUrl:'/manage/product/upload.do',
 			dataType: 'json',
-			fileFieldName: 'upload_file',
+			fileFieldName: 'file',
 			chooseAndUpload: true,
 			uploadSuccess: res => {
 				this.props.onUploadSuccess(res);
