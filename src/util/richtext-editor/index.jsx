@@ -22,7 +22,7 @@ class RichtextEditor extends React.Component{
 			defaultValue: this.props.placeholder || '请输入内容',
 			upload:{
 				url: '/manage/product/richtext_img_upload.do',
-				fileKey: 'upload_file',
+				fileKey: 'file',
 				leaveConfirm: '文件正在上传中,确定要离开当前页面吗?'
 			}
 		});
