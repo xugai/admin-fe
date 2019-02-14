@@ -21,7 +21,7 @@ class CategorySelector extends React.Component{
 		this.loadFirstCategoryIdList();
 	}
 	componentWillReceiveProps(nextProps){
-		let isNewFirstCategory = this.state.firstCategoryId !== nextProps.parentCategoryId,
+		let isNewFirstCategory = (typeof nextProps.parentCategoryId) === 'undefined' ? false : (this.state.firstCategoryId !== nextProps.parentCategoryId),
 			isNewSecondCategory = this.state.secondCategoryId !== nextProps.categoryId;
 		if(!isNewFirstCategory && !isNewSecondCategory){
 			return;
